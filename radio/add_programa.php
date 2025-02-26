@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['air
     $FrecuenciaID = (int)$_POST['FrecuenciaID'];
     $HostID = (int)$_POST['HostID'];
 
-    $stmt = $conexion->prepare("INSERT INTO programa (Nombre, HoraAire, DuracionMinutos, FrecuenciaID, HostID) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conexion->prepare("INSERT INTO programas (Nombre, HoraAire, DuracionMinutos, FrecuenciaID, HostID) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("ssiii", $nombre, $airtime, $duracionMinutos, $FrecuenciaID, $HostID);
 
     echo $stmt->execute()
