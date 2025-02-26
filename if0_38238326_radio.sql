@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql306.byetcluster.com
--- Generation Time: Feb 25, 2025 at 10:45 PM
+-- Generation Time: Feb 25, 2025 at 11:47 PM
 -- Server version: 10.6.19-MariaDB
 -- PHP Version: 7.2.22
 
@@ -35,6 +35,13 @@ CREATE TABLE `cabina` (
   `Capacidad` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `cabina`
+--
+
+INSERT INTO `cabina` (`cabinaID`, `Nombre`, `Locacion`, `Capacidad`) VALUES
+(1, 'Booth 1', 'Floor 1', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +57,13 @@ CREATE TABLE `cancion` (
   `GeneroID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `cancion`
+--
+
+INSERT INTO `cancion` (`cancionID`, `Titulo`, `Artista`, `Album`, `ReleaseYear`, `GeneroID`) VALUES
+(1, 'The Blind Leader', 'Kalmah', 'They Will Return', 2002, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +75,13 @@ CREATE TABLE `frecuencia` (
   `onda` varchar(10) NOT NULL,
   `valor` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `frecuencia`
+--
+
+INSERT INTO `frecuencia` (`FrecuenciaID`, `onda`, `valor`) VALUES
+(1, 'FM', '94.20');
 
 -- --------------------------------------------------------
 
@@ -94,6 +115,13 @@ CREATE TABLE `playlist` (
   `Posicion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `playlist`
+--
+
+INSERT INTO `playlist` (`PlaylistID`, `ProgramaID`, `CancionID`, `Posicion`) VALUES
+(1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -109,6 +137,13 @@ CREATE TABLE `programas` (
   `HostID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `programas`
+--
+
+INSERT INTO `programas` (`ProgramaID`, `Nombre`, `AirTime`, `DuracionMinutos`, `FrecuenciaID`, `HostID`) VALUES
+(1, 'Program1', '00:15:00', 20, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +157,13 @@ CREATE TABLE `radio_host` (
   `Experiencia` int(10) UNSIGNED DEFAULT NULL,
   `cabinaID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `radio_host`
+--
+
+INSERT INTO `radio_host` (`HostID`, `Nombre`, `Alias`, `Experiencia`, `cabinaID`) VALUES
+(1, 'Hansi Kursh', 'Wizard', 10, 1);
 
 --
 -- Indexes for dumped tables
@@ -186,43 +228,43 @@ ALTER TABLE `radio_host`
 -- AUTO_INCREMENT for table `cabina`
 --
 ALTER TABLE `cabina`
-  MODIFY `cabinaID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cabinaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cancion`
 --
 ALTER TABLE `cancion`
-  MODIFY `cancionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cancionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `frecuencia`
 --
 ALTER TABLE `frecuencia`
-  MODIFY `FrecuenciaID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `FrecuenciaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `GeneroID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `GeneroID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `PlaylistID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PlaylistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `programas`
 --
 ALTER TABLE `programas`
-  MODIFY `ProgramaID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ProgramaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `radio_host`
 --
 ALTER TABLE `radio_host`
-  MODIFY `HostID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `HostID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
