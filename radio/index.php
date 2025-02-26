@@ -95,9 +95,8 @@
             <option value="">Select Song</option>
             <?php include 'fetch_canciones.php'; ?>
         </select>
-        
         <label>Program:</label>
-        <select name="programaID" required>
+        <select name="ProgramaID" required>
             <option value="">Select Program</option>
             <?php include 'fetch_programas.php'; ?>
         </select>
