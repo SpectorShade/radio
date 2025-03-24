@@ -9,18 +9,27 @@
         form { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDHH9824MM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JDHH9824MM');
+</script>
 <body>
     <h1>Heavy Metal Radio Station</h1>
-    
-    <!-- Form to add Genre -->
+
+    <!-- Add Genre Form -->
     <form action="add_genero.php" method="POST">
         <h2>Add Genre</h2>
         <label>Name:</label> <input type="text" name="nombre" required>
         <label>Description:</label> <input type="text" name="descripcion">
         <button type="submit">Add Genre</button>
     </form>
+    <a href="read.php?table=genero"><button>View Genres</button></a>
 
-    <!-- Form to add Song -->
+    <!-- Add Song Form -->
     <form action="add_cancion.php" method="POST">
         <h2>Add Song</h2>
         <label>Title:</label> <input type="text" name="Titulo" required>
@@ -34,8 +43,9 @@
         </select>
         <button type="submit">Add Song</button>
     </form>
+    <a href="read.php?table=cancion"><button>View Songs</button></a>
 
-    <!-- Form to add Booth -->
+    <!-- Add Booth Form -->
     <form action="add_cabina.php" method="POST">
         <h2>Add Booth</h2>
         <label>Name:</label> <input type="text" name="Nombre" required>
@@ -43,16 +53,18 @@
         <label>Capacity:</label> <input type="number" name="Capacidad">
         <button type="submit">Add Booth</button>
     </form>
+    <a href="read.php?table=cabina"><button>View Booths</button></a>
 
-    <!-- Form to add Frequency -->
+    <!-- Add Frequency Form -->
     <form action="add_frecuencia.php" method="POST">
         <h2>Add Frequency</h2>
         <label>Wave (AM/FM):</label> <input type="text" name="onda" required>
         <label>Value:</label> <input type="number" name="valor" step="0.1" required>
         <button type="submit">Add Frequency</button>
     </form>
+    <a href="read.php?table=frecuencia"><button>View Frequencies</button></a>
 
-    <!-- Form to add Radio Host -->
+    <!-- Add Radio Host Form -->
     <form action="add_radio_host.php" method="POST">
         <h2>Add Radio Host</h2>
         <label>Name:</label> <input type="text" name="Nombre" required>
@@ -65,8 +77,9 @@
         </select>
         <button type="submit">Add Radio Host</button>
     </form>
+    <a href="read.php?table=radio_host"><button>View Radio Hosts</button></a>
 
-    <!-- Form to add Program -->
+    <!-- Add Program Form -->
     <form action="add_programa.php" method="POST">
         <h2>Add Program</h2>
         <label>Name:</label> <input type="text" name="Nombre" required>
@@ -84,24 +97,25 @@
         </select>
         <button type="submit">Add Program</button>
     </form>
+    <a href="read.php?table=programa"><button>View Programs</button></a>
 
-    <!-- Form to add Playlist Entry -->
+    <!-- Add Playlist Entry Form -->
     <form action="add_playlist.php" method="POST">
         <h2>Add Playlist Entry</h2>
-        <button type="submit">Add to Playlist</button>
         <label>Position:</label> <input type="number" name="Posicion" min="1" required>
         <label>Song:</label>
         <select name="CancionID" required>
             <option value="">Select Song</option>
             <?php include 'fetch_canciones.php'; ?>
         </select>
-        
         <label>Program:</label>
         <select name="ProgramaID" required>
             <option value="">Select Program</option>
             <?php include 'fetch_programas.php'; ?>
         </select>
-        
+        <button type="submit">Add to Playlist</button>
     </form>
+    <a href="read.php?table=playlist"><button>View Playlist</button></a>
+
 </body>
 </html>
